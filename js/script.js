@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFilter();
     initReveal();
     setMode(state.mode); // рендер + синхронизация кнопок
+    recalc();
 });
 
 const tea = document.getElementById("tea");
@@ -320,3 +321,69 @@ delivery.addEventListener('change', () => {
     total.textContent = teaCost + deliveryCost;
 });
 
+// связка
+
+const teaSelect = document.getElementById('tea');
+
+// заполняем select из TEAS (цена за 100 г — для отображения)
+function fillTeaSelect() {
+  teaSelect.innerHTML = TEAS.map(t => `
+    <option value="${t.id}">${t.name} — ${t.prices[100]} ₽ / 100 г</option>
+  `).join('');
+}
+fillTeaSelect();
+
+// пересчёт калькулятора: id сбора + фасовка
+function recalc() {
+  const teaId = teaSelect.value;
+  const teaData = TEAS.find(t => t.id === teaId);
+  if (!teaData) return;
+
+  const size = selectedWeight;               // 30 | 50 | 100
+  const teaCost = teaData.prices[size];      //  берём точную цену из TEAS
+  const deliveryCost = Number(delivery.value);
+
+  teaPrice.textContent = teaCost;
+  deliveryPrice.textContent = deliveryCost;
+  total.textContent = teaCost + deliveryCost;
+}
+
+// пересчёт при смене чая / доставки / фасовки
+teaSelect.addEventListener('change', recalc);
+delivery.addEventListener('change', recalc);
+
+// перепишем обработчики весов, чтобы использовали recalc
+[weight30, weight50, weight100].forEach((btn, i) => {
+  btn.addEventListener('click', () => {
+    selectedWeight = [30, 50, 100][i];
+    document.querySelectorAll('.weight').forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    recalc();
+  });
+});
+
+// кнопка
+catalogGrid.addEventListener('click', (e) => {
+  const btn = e.target.closest('.tea-card__add');
+  if (!btn) return;
+
+  const card = btn.closest('.tea-card');
+  const id = card.dataset.id;
+  const size = state.sizes[id] || 50;
+
+  // 1) выбрать чай в селекте
+  teaSelect.value = id;
+  // 2) выставить фасовку
+  selectedWeight = size;
+  document.querySelectorAll('.weight').forEach(b => b.classList.remove('is-active'));
+  document.getElementById('weight' + size)?.classList.add('is-active');
+  // 3) пересчитать
+  recalc();
+
+  // 4) скролл к калькулятору
+  document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+
+  // 5) визуальный отклик
+  btn.textContent = 'Добавлено ✓';
+  setTimeout(() => { btn.textContent = 'В калькулятор'; }, 1200);
+});
