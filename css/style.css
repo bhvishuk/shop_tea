@@ -245,3 +245,114 @@ body {
 
 .steps__cta { text-align: center; margin-top: 40px; }
 
+/*блок 3 */
+.catalog { padding: 40px 0 100px; }
+.catalog__controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.filter { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.filter__checkbox { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+.filter__label { font-size: .9rem; color: var(--muted); }
+
+.catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Карточка сбора */
+.tea-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all var(--transition);
+  position: relative;
+}
+.tea-card__badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tea-card__badge {
+  font-size: .68rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--card-alt);
+  color: var(--muted);
+  font-weight: 500;
+  transition: all var(--transition);
+}
+.tea-card__name { font-size: 1.05rem; margin-bottom: 6px; color: var(--text); }
+.tea-card__desc { font-size: .82rem; color: var(--muted); margin-bottom: 16px; min-height: 38px; }
+
+.tea-card__price-100 {
+  font-size: .8rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.tea-card__price-100 strong { color: var(--text); }
+
+.tea-card__sizes {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.size-btn {
+  flex: 1;
+  padding: 7px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-alt);
+  font-size: .8rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.size-btn.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--accent-soft);
+}
+
+.tea-card__total {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color:
+
+
+var(--text);
+}
+.tea-card__total small { font-size: .75rem; font-weight: 400; color: var(--muted); }
+
+.tea-card__add {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.tea-card__add:hover { filter: brightness(1.06); }
+
+/* Подсветка активного режима */
+.tea-card.is-recommended {
+  border-color: var(--accent);
+  box-shadow: 0 8px 28px rgba(90, 65, 45, .14);
+  transform: translateY(-3px);
+}
+.tea-card.is-recommended .tea-card__badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.tea-card.is-dimmed {
+  opacity: .5;
+  filter: grayscale(.25);
+}
