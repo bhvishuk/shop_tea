@@ -1,0 +1,65 @@
+* { box-sizing: border-box;
+    margin: 0; 
+    padding: 0; }
+
+    :root {
+  /* Палитра клиента */
+  --beige:    #E7DDCE;   /* фон */
+  --terra:    #C78363;   /* акцент 1 — утро */
+  --sage:     #A8B59A;   /* акцент 2 — день */
+
+  /* Производные */
+  --bg:        var(--beige);
+  --card:      #F4EEE5;              /* карточки — светлее фона */
+  --card-alt:  #EFE7DB;
+  --text:      #3A322B;              /* тёмно-коричневый, читаемый на беже */
+  --muted:     #8B7F72;
+  --border:    #D9CDBC;
+  --shadow:    0 8px 24px rgba(90, 65, 45, .10);
+
+  /* Акцент по умолчанию (переопределяется через body[data-mode]) */
+  --accent:      var(--terra);
+  --accent-soft: #F3E4DA;            /* мягкая заливка под терракоту */
+  --accent-2:    var(--sage);
+
+  --radius: 16px;
+  --transition: .35s ease;
+}
+
+/* Режимы задают акцент на body через data-mode */
+body[data-mode="morning"] {
+  --accent: var(--terra);
+  --accent-soft: #F3E4DA;
+  --accent-2: var(--sage);
+}
+body[data-mode="day"] {
+  --accent: var(--sage);
+  --accent-soft: #E4E9DE;
+  --accent-2: var(--terra);
+}
+body[data-mode="evening"] {
+  --accent: #9A8C7A;                 /* приглушённый микс под вечер */
+  --accent-soft: #E6DFD3;
+  --accent-2: var(--sage);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  transition: background var(--transition);
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 32px;
+  text-align: center;
+  color: var(--text);
+}
