@@ -90,3 +90,108 @@ body {
 }
 .btn--ghost:hover { background: var(--accent-soft); }
 
+/* блок 1 */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+  transition: background var(--transition);
+}
+/* Мягкие градиенты из палитры */
+.hero[data-mode="morning"] {
+  background: linear-gradient(180deg, #F0E3D8 0%, var(--beige) 100%);
+}
+.hero[data-mode="day"] {
+  background: linear-gradient(180deg, #E3E8DD 0%, var(--beige) 100%);
+}
+.hero[data-mode="evening"] {
+  background: linear-gradient(180deg, #E5DDD2 0%, var(--beige) 100%);
+}
+
+.hero__eyebrow {
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.hero__subtitle {
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 32px;
+}
+
+/* Переключатель режимов */
+.mode-switch {
+  display: inline-flex;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px;
+  gap: 4px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+}
+.mode-switch__btn {
+  border: none;
+  background: transparent;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.mode-switch__btn.is-active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(90, 65, 45, .15);
+}
+.mode-switch__btn:not(.is-active):hover { color: var(--text); }
+.mode-switch--small { margin-bottom: 0; padding: 4px; }
+.mode-switch--small .mode-switch__btn { padding: 8px 16px; font-size: .85rem; }
+
+/* Превью-карточки в hero */
+.hero__preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+
+
+;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto 40px;
+}
+.preview-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: left;
+  transition: all var(--transition);
+  animation: fadeIn .4s ease;
+}
+.preview-card__badge {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.preview-card__name { font-weight: 600; margin-bottom: 6px; color: var(--text); }
+.preview-card__note { font-size: .85rem; color: var(--muted); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
