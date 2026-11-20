@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Магазин чая</title>
 </head>
 <body>
-    
+    <!-- блок 1: hero -->
+    <section class="hero" id="hero" data-mode="morning">
+        <div class="container">
+            <p class="hero_eyebrow">Магазин специй и чайных сборов</p>
+            <h1 class="hero_title">Чай под настроение<br>и время суток</h1>
+            <p class="hero_subtitle">
+                Подсветим сборы без кофеина или с пряностями — под ваше время суток
+            </p>
+
+            <!-- переключатель -->
+            <div class="mode-switch" role="tablist" aria-label="Время суток">
+        <button class="mode-switch_btn is-active" data-mode="morning" role="tab" aria-selected="true">
+          <span class="mode-switch_icon">🌅</span> Утро
+        </button>
+        <button class="mode-switch_btn" data-mode="day" role="tab" aria-selected="false">
+          <span class="mode-switch_icon">☀️</span> День
+        </button>
+        <button class="mode-switch_btn" data-mode="evening" role="tab" aria-selected="false">
+          <span class="mode-switch_icon">🌙</span> Вечер
+        </button>
+      </div>
+
+      <div class="hero_preview" id="heroPreview"></div>
+
+      <a href="#catalog" class="btn btn--primary">Собрать свой ритуал</a>
+    </div>
+  </section>
+
+  <script src="/js/script.js"></script>
 </body>
 </html>
