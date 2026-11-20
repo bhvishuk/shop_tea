@@ -92,3 +92,144 @@ body {
     font-size: 24px;
     margin-top: 15px;
 }
+
+.rituals {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rituals h2 {
+    color: #354B3B;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.rituals-subtitle {
+    color: #354B3B;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.rituals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ritual-card {
+    display: block;
+    text-decoration: none;
+    background-color: #F5F0E6;
+    border-radius: 16px;
+    padding: 25px 30px;
+    border-left: 8px solid var(--sage);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.ritual-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ritual-icon {
+    font-size: 28px;
+}
+
+.ritual-header h3 {
+    color: #354B3B;
+    font-size: 24px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.ritual-arrow {
+    font-size: 24px;
+    color: var(--sage);
+    transition: transform 0.4s ease;
+}
+
+.ritual-content {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.4s ease;
+    text-align: left;
+    padding-left: 43px;
+}
+
+.ritual-content p {
+    color: #354B3B;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+.ritual-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 12px;
+    background-color: var(--sage);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ritual-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.ritual-card:hover .ritual-content {
+    max-height: 150px;
+    opacity: 1;
+}
+
+.ritual-card:hover .ritual-arrow {
+    transform: translateX(5px);
+}
+
+.ritual-card.morning {
+    border-left-color: var(--terracotta);
+}
+
+.ritual-card.morning .ritual-arrow {
+    color: var(--terracotta);
+}
+
+.ritual-card.morning .ritual-tag {
+    background-color: var(--terracotta);
+}
+
+.ritual-card.morning:hover {
+    background-color: #F5E9E2;
+}
+
+.ritual-card.day {
+    border-left-color: var(--sage);
+}
+
+.ritual-card.day:hover {
+    background-color: #EEF2E8;
+}
+
+.ritual-card.evening {
+    border-left-color: var(--terracotta);
+}
+
+.ritual-card.evening .ritual-arrow {
+    color: var(--terracotta);
+}
+
+.ritual-card.evening .ritual-tag {
+    background-color: var(--terracotta);
+    color: var(--sand);
+}
+
+.ritual-card.evening:hover {
+    background-color: var(--sand);
+}
