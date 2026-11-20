@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Магазин чая</title>
+    <title>Temoov</title>
 </head>
 <body>
     <!-- блок 1: hero -->
@@ -17,17 +17,11 @@
             </p>
 
             <!-- переключатель -->
-            <div class="mode-switch" role="tablist" aria-label="Время суток">
-        <button class="mode-switch_btn is-active" data-mode="morning" role="tab" aria-selected="true">
-          <span class="mode-switch_icon">🌅</span> Утро
-        </button>
-        <button class="mode-switch_btn" data-mode="day" role="tab" aria-selected="false">
-          <span class="mode-switch_icon">☀️</span> День
-        </button>
-        <button class="mode-switch_btn" data-mode="evening" role="tab" aria-selected="false">
-          <span class="mode-switch_icon">🌙</span> Вечер
-        </button>
-      </div>
+            <div class="mode-switch mode-switch--small" role="tablist" aria-label="Время суток">
+          <button class="mode-switch__btn is-active" data-mode="morning" role="tab" aria-selected="true">Утро</button>
+          <button class="mode-switch__btn" data-mode="day" role="tab" aria-selected="false">День</button>
+          <button class="mode-switch__btn" data-mode="evening" role="tab" aria-selected="false">Вечер</button>
+        </div>
 
       <div class="hero_preview" id="heroPreview"></div>
 
