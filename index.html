@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Магазин чая</title>
+
 </head>
+
 <body>
-    
+    <section class='calculator' id='calculator'>
+        <h2>Соберите свой заказ</h2>
+        <p>Выберите чай, фасовку и способ доставки</p>
+
+        <div class='calculator-box'>
+
+            <label for='tea'>Чай:</label>
+            <select id='tea'>
+                <option value='350'>Лесные ягоды</option>
+                <option value='400'>Тёплый имбирь</option>
+                <option value='500'>Лавандовый вечер</option>
+            </select>
+
+            <p>Фасовка:</p>
+
+            <button class='weight' id='weight30'>30 г</button>
+            <button class='weight' id='weight50'>50 г</button>
+            <button class='weight' id='weight100'>100 г</button>
+
+            <label for='delivery'>Доставка:</label>
+            <select id='delivery'>
+                <option value='200'>По городу — 200 ₽</option>
+                <option value='350'>По стране — 350 ₽</option>
+                <option value='0'>Самовывоз — 0 ₽</option>
+            </select>
+
+            <div class='result'>
+                <p>Стоимость чая: <span id='tea-price'>0</span> ₽</p>
+                <p>Стоимость доставки: <span id='delivery-price'>0</span> ₽</p>
+                <h3>Итого: <span id='total'>0</span> ₽</h3>
+            </div>
+        </div>
+    </section>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
