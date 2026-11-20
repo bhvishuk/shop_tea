@@ -88,6 +88,34 @@
     </div>
   </section>
 
+
+  <!-- блок 3: каталог -->
+
+
+  <section class="catalog" id="catalog" data-mode="morning">
+    <div class="container">
+      <h2 class="section-title">Сборы под ваше время суток</h2>
+
+      <div class="catalog__controls">
+        <!-- Дублирующий переключатель (синхронизирован с hero) -->
+        <div class="mode-switch mode-switch--small" role="tablist" aria-label="Время суток">
+          <button class="mode-switch__btn is-active" data-mode="morning" role="tab" aria-selected="true">Утро</button>
+          <button class="mode-switch__btn" data-mode="day" role="tab" aria-selected="false">День</button>
+          <button class="mode-switch__btn" data-mode="evening" role="tab" aria-selected="false">Вечер</button>
+        </div>
+
+        <label class="filter">
+          <input type="checkbox" id="noCaffeine" class="filter__checkbox">
+          <span class="filter__label">Без кофеина</span>
+        </label>
+      </div>
+
+      <div class="catalog__grid" id="catalogGrid"></div>
+    </div>
+  </section>
+
+
+  
   <script src="/js/script.js"></script>
 </body>
 </html>
