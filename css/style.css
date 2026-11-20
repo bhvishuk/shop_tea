@@ -195,3 +195,53 @@ body {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* блок 2 */
+.steps { padding: 80px 0; }
+.steps__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.step__icon { font-size: 2.2rem; margin-bottom: 12px; }
+.step__title { font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
+.step__text { font-size: .9rem; color: var(--muted); margin-bottom: 18px; }
+.step__mini {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  font-size: .8rem;
+}
+.step__mini--calc { flex-direction: column; color: var(--muted); }
+
+.chip {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--card-alt);
+  transition: all var(--transition);
+}
+.chip.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Появление при скролле */
+.reveal { opacity: 0; transform: translateY(20px); transition: all .6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.steps__cta { text-align: center; margin-top: 40px; }
+
